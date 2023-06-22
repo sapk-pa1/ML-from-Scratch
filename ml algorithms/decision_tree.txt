@@ -1,0 +1,97 @@
+
+Algorithm: 
+
+Step-1: Begin the tree with the root node, says S, which contains the complete dataset.
+Step-2: Find the best attribute in the dataset using Attribute Selection Measure (ASM).
+Step-3: Divide the S into subsets that contains possible values for the best attributes.
+Step-4: Generate the decision tree node, which contains the best attribute.
+Step-5: Recursively make new decision trees using the subsets of the dataset created in step -3. 
+Continue this process until a stage is reached where you cannot further classify the nodes and called the final node as a 
+leaf nodeClassification and Regression Tree algorithm.
+
+Parameters of Decision Tree Classifier 
+criterion{“gini”, “entropy”, “log_loss”}, default=”gini”
+The function to measure the quality of a split. Supported criteria are “gini” for the Gini impurity and “log_loss” and “entropy” both for the Shannon information gain, see Mathematical formulation.
+
+splitter{“best”, “random”}, default=”best”
+The strategy used to choose the split at each node. Supported strategies are “best” to choose the best split and “random” to choose the best random split.
+
+max_depthint, default=None
+The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.
+
+min_samples_splitint or float, default=2
+The minimum number of samples required to split an internal node:
+
+If int, then consider min_samples_split as the minimum number.
+
+If float, then min_samples_split is a fraction and ceil(min_samples_split * n_samples) are the minimum number of samples for each split.
+
+Changed in version 0.18: Added float values for fractions.
+
+min_samples_leafint or float, default=1
+The minimum number of samples required to be at a leaf node. A split point at any depth will only be considered if it leaves at least min_samples_leaf training samples in each of the left and right branches. This may have the effect of smoothing the model, especially in regression.
+
+If int, then consider min_samples_leaf as the minimum number.
+
+If float, then min_samples_leaf is a fraction and ceil(min_samples_leaf * n_samples) are the minimum number of samples for each node.
+
+Changed in version 0.18: Added float values for fractions.
+
+min_weight_fraction_leaffloat, default=0.0
+The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.
+
+max_featuresint, float or {“auto”, “sqrt”, “log2”}, default=None
+The number of features to consider when looking for the best split:
+
+If int, then consider max_features features at each split.
+
+If float, then max_features is a fraction and max(1, int(max_features * n_features_in_)) features are considered at each split.
+
+If “auto”, then max_features=sqrt(n_features).
+
+If “sqrt”, then max_features=sqrt(n_features).
+
+If “log2”, then max_features=log2(n_features).
+
+If None, then max_features=n_features.
+
+Terminologies 
+Decision Tree Terminologies
+Some of the common Terminologies used in Decision Trees are as follows:
+
+# Root Node: 
+It is the topmost node in the tree,  which represents the complete dataset. It is the starting point of the decision-making process.
+
+#Decision/Internal Node: 
+A node that symbolizes a choice regarding an input feature. Branching off of internal nodes connects them to leaf nodes or other
+internal nodes.
+
+#Leaf/Terminal Node: 
+A node without any child nodes that indicates a class label or a numerical value.
+
+#Splitting: 
+The process of splitting a node into two or more sub-nodes using a split criterion and a selected feature.
+
+#Branch/Sub-Tree: 
+A subsection of the decision tree starts at an internal node and ends at the leaf nodes.
+
+#Parent Node: 
+The node that divides into one or more child nodes.
+
+#Child Node: 
+The nodes that emerge when a parent node is split.
+
+#Impurity: 
+A measurement of the target variable’s homogeneity in a subset of data. It refers to the degree of randomness or uncertainty in a 
+set of examples. The Gini index and entropy are two commonly used impurity measurements in decision trees for classifications task 
+
+#Variance: 
+Variance measures how much the predicted and the target variables vary in different samples of a dataset. 
+It is used for regression problems in decision trees. Mean squared error, Mean Absolute Error, friedman_mse, or Half Poisson deviance
+ are used to measure the variance for the regression tasks in the decision tree.
+
+
+#Information Gain: Information gain is a measure of the reduction in impurity achieved by splitting a dataset on a particular feature
+in a decision tree. The splitting criterion is determined by the feature that offers the greatest information gain, It is used to 
+determine the most informative feature to split on at each node of the tree, with the goal of creating pure subsets
+#Pruning: The process of removing branches from the tree that do not provide any additional information or lead to overfitting.
